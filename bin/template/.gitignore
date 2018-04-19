@@ -1,0 +1,9 @@
+.DS_Store
+*.pdf
+
+.sass-cache
+Gemfile.lock
+tmp
+output
+*.log
+*.diff

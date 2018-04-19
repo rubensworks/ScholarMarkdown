@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title><%= h @item[:title] %></title>
+  <link rel="stylesheet" media="screen" href="styles/screen.css">
+  <link rel="stylesheet" media="print"  href="styles/print.css">
+</head>
+<body prefix="cc: https://creativecommons.org/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#">
+  <%= yield %>
+</body>
+</html>

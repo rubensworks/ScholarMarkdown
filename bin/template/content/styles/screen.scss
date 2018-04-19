@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i');
+@import 'reset.scss';
+
+@media screen {
+  #repeating-title {
+    display: none;
+  }
+}
+
+#keywords {
+  font-weight: normal;
+  .title {
+    font-style: italic;
+  }
+}
+
+img.plot {
+  width: auto;
+  height: 16em;
+}
+
+body {
+  margin: 0 auto;
+  padding: 1em;
+
+  font: 13pt/1.4 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  max-width: 800px;
+}
+
+header {
+  margin-bottom: 2em;
+
+  h1 {
+    font-size: 1.9em;
+    letter-spacing: -.01em;
+    font-weight: bold;
+    margin: 1em 0 .5em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  #authors {
+    li {
+      display: inline;
+      margin-right: 1.5em;
+      white-space: nowrap;
+    }
+
+    a {
+      &:not(:hover) {
+        background: none;
+      }
+      sup {
+        margin: 0 -.1em 0 .1em;
+      }
+    }
+  }
+
+  #affiliations {
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+
+    font-size: .9em;
+
+    sup {
+      margin-right: .15em;
+    }
+  }
+
+  #abstract {
+    font-weight: bold;
+    hyphens: auto;
+
+    h2 {
+      display: none;
+    }
+  }
+}
+
+main, #appendix {
+  counter-reset: section;
+
+  section > p, ul, ol, dl {
+    hyphens: auto;
+  }
+
+  // Sections
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1.5em 0 .5em;
+
+    counter-increment: section;
+    counter-reset: subsection;
+
+    &::before {
+      content: counter(section) ". ";
+    }
+  }
+
+  // Subsections
+  h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+
+    counter-increment: subsection;
+    counter-reset: subsubsection;
+
+    &::before {
+      content: counter(section) "." counter(subsection) ". ";
+    }
+  }
+
+  // Titled paragraphs
+  h4 {
+    font-weight: bold;
+    margin: 0 1em 0 0;
+    
+    counter-increment: subsubsection;
+    
+    &::before {
+      content: counter(section) "." counter(subsection) "." counter(subsubsection) ". ";
+    }
+  }
+
+  // Paragraphs
+  p {
+    margin-bottom: 1em;
+  }
+
+  // Lists
+  ul, ol {
+    margin: 1em 0;
+
+    li {
+      margin-left: 2em;
+      &:before {
+        position: absolute;
+        display: block;
+      }
+    }
+  }
+  ul {
+    li {
+      &:before {
+        content: "▪";
+        font-size: 1.2em;
+        margin: -.1em 0 0 -.9em;
+      }
+    }
+  }
+  ol {
+    counter-reset: ol;
+    li {
+      &:before {
+        content: counter(ol) ".";
+        counter-increment: ol;
+        margin: 0 0 0 -2em;
+        text-align: right;
+        min-width: 1.5em;
+      }
+    }
+  }
+
+  // Figures
+  figure {
+    background: darken(white, 4%);
+    padding: 1em 2em;
+    margin: 1em 0;
+
+    figcaption {
+      margin: 1em 0 .5em;
+
+      .label {
+        float: left;
+        font-weight: bold;
+        margin-right: .5em;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  // References
+  a.reference {
+    font-size: .95em;
+    &:not(:hover) {
+      color: #999;
+      background: none;
+    }
+  }
+}
+
+#appendix {
+  h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1em 0 .5em;
+  }
+  // Sections
+  h2 {
+    &::before {
+      content: counter(section, upper-alpha) ". ";
+    }
+  }
+}
+
+footer {
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1em 0 .5em;
+  }
+}
+
+a {
+  $link-color: #45678e;
+  $hover-color: #0b99bc;
+
+  color: $link-color;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor 50%, currentColor 50%);
+  background-repeat: repeat-x;
+  background-position: 0 1.2em;
+  background-size: 50px 1px;
+
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+q {
+  font-style: italic;
+
+  &::before {
+    content: "“";
+  }
+  &::after {
+    content: "”";
+  }
+}
+
+pre {
+  line-height: 1.2;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  code {
+    font-size: .9em;
+    letter-spacing: -.1pt;
+  }
+}
+
+figure.numbered pre {
+  counter-reset: precode;
+
+  code {
+    &::before {
+      color: lightgray;
+      left: -1.75em;
+      text-align: right;
+      display: inline-block;
+      width: 1.5em;
+      content: counter(precode) " ";
+      counter-increment: precode;
+    }
+  }
+}
+
+#references {
+  h2 {
+    &::before {
+      content: "";
+    }
+  }
+
+  dl {
+    font-size: .9em;
+
+    dt {
+      float: left;
+      clear: left;
+    }
+
+    dd {
+      margin: 0 0 .5em 2em;
+    }
+  }
+}
+
+
+#footnotes {
+  counter-reset: footnote;
+
+  ol {
+    font-size: .9em;
+    list-style: none;
+
+    li {
+      &:before {
+        counter-increment: footnote;
+        content: counter(footnote);
+        font-size: smaller;
+        margin: -.3em .1em 0 0;
+        float: left;
+      }
+    }
+  }
+}
+
+table {
+  margin: 0 auto;
+
+  th, td {
+    text-align: left;
+    padding: 0 .5em;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  thead {
+    border-bottom: 1px solid;
+  }
+  
+  .hr {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid;
+  }
+}
+
+caption {
+  padding:0.25em 0;
+}
+tbody th {
+  text-align:left;
+}
+
+@import "shared.scss";

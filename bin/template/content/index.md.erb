@@ -1,0 +1,21 @@
+---
+title: "My Awesome Article"
+---
+<header markdown="1">
+# <%= @item[:title] %>
+
+{:#authors}
+- <%= person 'John Doe', 'http://www.example.org/', 'http://www.example.org/#me' %>
+
+{:#affiliations}
+- {:#myaffiliation} Awesome Inc.
+
+<%= section 'abstract' %>
+</header>
+
+<main>
+  <!-- Add sections by specifying their file name, excluding the '.md' suffix. -->
+  <%= section 'introduction'  %>
+</main>
+
+<footer></footer>

@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+# Initialize a ScholarMarkdown article project
+
+require 'fileutils'
+templatedir = File.dirname(__FILE__) + '/template'
+
+targetdir = ARGV[0]
+if not targetdir
+  puts 'No target directory name was given'
+  exit(1)
+end
+if File.exists?(targetdir)
+  puts 'The target directory already exists'
+  exit(1)
+end
+
+puts 'Initializing project at ' + targetdir
+Dir.mkdir(targetdir)
+FileUtils.copy_entry(templatedir, targetdir)

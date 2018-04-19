@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+figure {
+  img {
+    width: 100%;
+  }
+}
+
+.todo {
+  color: red;
+  &::before {
+    content: "TODO: ";
+  }
+}
+.comment {
+  &, & * {
+    color: red !important;
+  }
+
+  font-style: italic;
+  &:before {
+    content: "[";
+  }
+  &[data-author]:before {
+    content: "[" attr(data-author) ": ";
+  }
+  &:after {
+    content: "]";
+  }
+}
+del.comment {
+  &:before, &[data-author]:before, &:after {
+    content: "";
+  }
+  &[data-author]:after {
+    content: " (" attr(data-author) ")";
+  }
+}
+
+.spelling {
+  text-decoration: underline wavy red;
+}
+.grammar {
+  text-decoration: underline wavy darkgreen;
+}
+.rephrase {
+  text-decoration: underline wavy blue;
+}
+.reference.needed {
+  &:before {
+    content: "[?!]";
+    color: red;
+    font-weight: bold;
+  }
+}
+
+code {
+  font-family: "Ubuntu Mono", monospace;
+}
+
+li p {
+  display: inline;
+}
+
+dl {
+  margin: 1em 0;
+
+  dt {
+    font-weight: bold;
+    float: left;
+    clear: left;
+    margin-right: 1ex;
+  }
+}
+
+var {
+  font-style: italic;
+}

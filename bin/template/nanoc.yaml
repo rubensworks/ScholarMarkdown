@@ -1,0 +1,28 @@
+string_pattern_type: glob
+
+text_extensions: [ 'adoc', 'asciidoc', 'atom', 'bib', 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'json', 'jsonld', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'rdoc', 'sass', 'scss', 'slim', 'ttl', 'txt', 'xhtml', 'xml', 'csv' ]
+
+output_dir: output
+
+index_filenames: [ 'index.html' ]
+
+enable_output_diff: false
+
+prune:
+  auto_prune: true
+  exclude: [ '.git', '.hg', '.svn', 'CVS' ]
+
+data_sources:
+  -
+    type: filesystem
+    items_root: /
+    layouts_root: /
+    encoding: utf-8
+    identifier_type: full
+
+checks:
+  internal_links:
+    exclude: []
+  external_links:
+    exclude: []
+    exclude_files: []
