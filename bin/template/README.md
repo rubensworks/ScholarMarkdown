@@ -11,3 +11,5 @@ bundle exec nanoc compile
 bundle install
 bundle exec guard
 ```
+
+View on http://localhost:3000/
