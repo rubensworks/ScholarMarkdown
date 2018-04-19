@@ -19,6 +19,6 @@ Juwelier::Tasks.new do |gem|
   gem.summary = "A framework for writing markdown-based scholarly articles."
   gem.email = "rubensworks@gmail.com"
   gem.authors = ["Ruben Taelman"]
-  gem.executables = ['generate-scholarmd']
+  gem.executables = ['generate-scholarmarkdown']
 end
 Juwelier::RubygemsDotOrgTasks.new

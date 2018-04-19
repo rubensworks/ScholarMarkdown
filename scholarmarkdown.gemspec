@@ -13,10 +13,46 @@ Gem::Specification.new do |s|
   s.authors = ["Ruben Taelman"]
   s.date = "2018-04-19"
   s.email = "rubensworks@gmail.com"
-  s.executables = ["generate-scholarmd"]
+  s.executables = ["generate-scholarmarkdown"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
+  ]
+  s.files = [
+    "Gemfile",
+    "Gemfile.lock",
+    "LICENSE.txt",
+    "README.md",
+    "Rakefile",
+    "VERSION",
+    "bin/template/.gitignore",
+    "bin/template/Gemfile",
+    "bin/template/Guardfile",
+    "bin/template/README.md",
+    "bin/template/Rules",
+    "bin/template/config.ru",
+    "bin/template/content/abstract.md",
+    "bin/template/content/index.md.erb",
+    "bin/template/content/introduction.md",
+    "bin/template/content/references.bib",
+    "bin/template/content/styles/lncs.scss",
+    "bin/template/content/styles/print.scss",
+    "bin/template/content/styles/reset.scss",
+    "bin/template/content/styles/screen.scss",
+    "bin/template/content/styles/shared.scss",
+    "bin/template/layouts/default.html.erb",
+    "bin/template/nanoc.yaml",
+    "lib/scholarmarkdown.rb",
+    "lib/scholarmarkdown/citationstyles/lncs-custom.csl",
+    "lib/scholarmarkdown/filter/acronym.rb",
+    "lib/scholarmarkdown/filter/citation.rb",
+    "lib/scholarmarkdown/filter/headerids_to_section.rb",
+    "lib/scholarmarkdown/filter/hyphenate_iri.rb",
+    "lib/scholarmarkdown/filter/include_code.rb",
+    "lib/scholarmarkdown/filter/labelify.rb",
+    "lib/scholarmarkdown/filter/references_to_footer.rb",
+    "lib/scholarmarkdown/snippets.rb",
+    "scholarmarkdown.gemspec"
   ]
   s.homepage = "http://github.com/rubensworks/ScholarMarkdown"
   s.licenses = ["MIT"]
