@@ -1,7 +1,7 @@
 # ScholarMarkdown
 [![scholarmarkdown gem version](https://badge.fury.io/rb/scholarmarkdown.svg)](https://rubygems.org/gems/scholarmarkdown)
 
-ScholarMarkdown is Ruby gem for writing scholarly articles in Markdown/HTML.
+ScholarMarkdown is Ruby gem for writing scholarly articles in Markdown/HTML. These articles can be viewed in your browser with rich HTML annotations, and they can be printed to PDF into traditional scientific templates via your browser.
 
 It provides an executable (`generate-scholarmd`) for initializing a [nanoc](https://nanoc.ws/) project
 to generate HTML and PDF versions of articles.
