@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "bin/generate-scholarmarkdown",
     "bin/template/.gitignore",
     "bin/template/Gemfile",
     "bin/template/Guardfile",
