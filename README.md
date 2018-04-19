@@ -2,7 +2,7 @@
 
 ScholarMarkdown is Ruby gem for writing scholarly articles in Markdown/HTML.
 
-It provides an executable (`generate-scholarmd`) for initializing a nanoc project
+It provides an executable (`generate-scholarmd`) for initializing a [nanoc](https://nanoc.ws/) project
 to generate HTML and PDF versions of articles.
 
 ## Quick Start
