@@ -1,4 +1,5 @@
 # ScholarMarkdown
+[![scholarmarkdown gem version](https://badge.fury.io/rb/scholarmarkdown.svg)](https://rubygems.org/gems/scholarmarkdown)
 
 ScholarMarkdown is Ruby gem for writing scholarly articles in Markdown/HTML.
 
