@@ -43,6 +43,37 @@ header {
     padding: 0;
   }
 
+  .actions, .context {
+    font-size: .9em;
+
+    h2 {
+      margin: 0;
+      display: inline;
+      font-size: 1em;
+      font-weight: normal;
+
+      &:after {
+        content: ":";
+      }
+    }
+
+    ul {
+      display: inline;
+    }
+
+    li {
+      display: inline;
+      white-space: nowrap;
+      font-style: italic;
+
+      &:not(:last-child) {
+        &:after {
+          content: ", ";
+        }
+      }
+    }
+  }
+
   #authors {
     li {
       display: inline;
@@ -75,6 +106,7 @@ header {
   #abstract {
     font-weight: bold;
     hyphens: auto;
+    padding-bottom: 10px;
 
     h2 {
       display: none;
