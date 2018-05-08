@@ -28,6 +28,7 @@ group :development do
   gem 'rack-livereload'
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   gem 'rb-readline'
+  gem 'rb-notifu' if Gem.win_platform?
 end
 
 group :test do
