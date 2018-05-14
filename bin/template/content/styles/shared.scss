@@ -28,6 +28,7 @@ figure {
   }
 }
 del.comment {
+  text-decoration: line-through;
   &:before, &[data-author]:before, &:after {
     content: "";
   }
