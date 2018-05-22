@@ -220,9 +220,10 @@ main, #appendix {
   }
 
   // References
-  a.reference {
+  .references {
     font-size: .95em;
-    &:not(:hover) {
+    color: #999;
+    a:not(:hover) {
       color: #999;
       background: none;
     }
