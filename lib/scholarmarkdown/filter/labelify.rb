@@ -30,6 +30,8 @@ def label_type_for tag, attribute_list
     'Section'
   when :h3
     'Subsection'
+  when :h4
+    'Subsubsection'
   when :figure
     unless parse_attributes(attribute_list)[:class].nil?
       for clazz in parse_attributes(attribute_list)[:class].split(' ') do
@@ -58,8 +60,12 @@ def number_for type
   case type
   when 'Section'
     @reference_counts['Subsection'] = 0
+    @reference_counts['Subsubsection'] = 0
   when 'Subsection'
+    @reference_counts['Subsubsection'] = 0
     number = "#{reference_counts['Section']}.#{number}"
+  when 'Subsubsection'
+    number = "#{reference_counts['Section']}.#{reference_counts['Subsection']}.#{number}"
   end
   number
 end
