@@ -62,6 +62,7 @@ def number_for type
     @reference_counts['Subsection'] = 0
     @reference_counts['Subsubsection'] = 0
   when 'Subsection'
+    @reference_counts['Subsubsection'] = 0
     number = "#{reference_counts['Section']}.#{number}"
   when 'Subsubsection'
     number = "#{reference_counts['Section']}.#{reference_counts['Subsection']}.#{number}"
