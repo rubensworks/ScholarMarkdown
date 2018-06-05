@@ -42,6 +42,8 @@ def label_type_for tag, attribute_list
           return 'Listing'
         when 'table'
           return 'Table'
+        when 'equation'
+          return 'Equation'
         end
       end
     end

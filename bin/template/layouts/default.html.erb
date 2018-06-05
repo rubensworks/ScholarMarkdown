@@ -5,6 +5,7 @@
   <title><%= h @item[:title] %></title>
   <link rel="stylesheet" media="screen" href="styles/screen.css" />
   <link rel="stylesheet" media="print"  href="styles/print.css" />
+  <%= @items['/styles/katex.css'].nil? ? '' : '<link rel="stylesheet" media="all"    href="styles/katex.css">' %>
 </head>
 <body prefix="cc: https://creativecommons.org/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#">
   <%= yield %>

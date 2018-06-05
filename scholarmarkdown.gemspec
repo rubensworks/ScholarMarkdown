@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Ruben Taelman"]
-  s.date = "2018-05-24"
+  s.date = "2018-06-05"
   s.email = "rubensworks@gmail.com"
   s.executables = ["generate-scholarmarkdown"]
   s.extra_rdoc_files = [
@@ -71,6 +71,10 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<citeproc-ruby>, [">= 1.1.6"])
       s.add_runtime_dependency(%q<csl-styles>, [">= 0"])
       s.add_runtime_dependency(%q<bibmarkdown>, ["~> 2.0.0"])
+      s.add_runtime_dependency(%q<katex>, [">= 0"])
+      s.add_runtime_dependency(%q<sskatex>, [">= 0"])
+      s.add_runtime_dependency(%q<execjs>, [">= 0"])
+      s.add_runtime_dependency(%q<therubyracer>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<juwelier>, ["~> 2.4.7"])
     else
@@ -80,6 +84,10 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<citeproc-ruby>, [">= 1.1.6"])
       s.add_dependency(%q<csl-styles>, [">= 0"])
       s.add_dependency(%q<bibmarkdown>, ["~> 2.0.0"])
+      s.add_dependency(%q<katex>, [">= 0"])
+      s.add_dependency(%q<sskatex>, [">= 0"])
+      s.add_dependency(%q<execjs>, [">= 0"])
+      s.add_dependency(%q<therubyracer>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<juwelier>, ["~> 2.4.7"])
     end
@@ -90,6 +98,10 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<citeproc-ruby>, [">= 1.1.6"])
     s.add_dependency(%q<csl-styles>, [">= 0"])
     s.add_dependency(%q<bibmarkdown>, ["~> 2.0.0"])
+    s.add_dependency(%q<katex>, [">= 0"])
+    s.add_dependency(%q<sskatex>, [">= 0"])
+    s.add_dependency(%q<execjs>, [">= 0"])
+    s.add_dependency(%q<therubyracer>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<juwelier>, ["~> 2.4.7"])
   end
