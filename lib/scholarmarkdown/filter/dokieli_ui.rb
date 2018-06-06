@@ -1,5 +1,5 @@
-# Define a filter for adding Dokieli annotations
-Nanoc::Filter.define(:scholar_dokieli) do |content, params|
+# Define a filter for adding the Dokieli UI
+Nanoc::Filter.define(:scholar_dokieli_ui) do |content|
   content = content.dup
 
   # Add Dokieli scripts at the end of the <head>
@@ -13,20 +13,6 @@ Nanoc::Filter.define(:scholar_dokieli) do |content, params|
   <script src="https://dokie.li/scripts/medium-editor-tables.min.js"></script>
   <script src="https://dokie.li/scripts/do.js"></script>
 </head>
-    HTML
-  end
-  
-  # Add Dokieli actions at the end of the <header>
-  content.gsub! %r{\<\/header\>} do |match|
-    <<-HTML
-  <section class="actions">
-    <h2 id="notifications-and-annotations">Notifications and annotations</h2>
-    <ul>
-      <li><a href="#{params[:notifications]}" rel="ldp:inbox">notification inbox</a></li>
-      <li><a href="#{params[:annotations]}" rel="oa:annotationService">annotation service</a></li>
-    </ul>
-  </section>
-</header>
     HTML
   end
   
