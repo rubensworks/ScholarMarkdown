@@ -6,7 +6,7 @@ Nanoc::Filter.define(:scholar_acronym) do |content, params|
   transformed = content.dup
   acronyms.each do |row|
     transformed.gsub! %r{(?<=[^a-zA-Z0-9])#{row['abbreviation']}(?=[^a-zA-Z0-9])} do |match|
-      %{<span class='abbreviation' title='#{row['full']}'>#{row['abbreviation']}</span>}
+      %{<abbr title='#{row['full']}'>#{row['abbreviation']}</abbr>}
     end
   end
   transformed
