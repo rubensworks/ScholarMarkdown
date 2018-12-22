@@ -41,5 +41,11 @@ Visit `http://localhost:3000/` in your browser to read your article.
 
 Preview in print-mode to see it in its traditional scientific format.
 
+#### 5. _(Optional)_ Share your article
+
+After compiling your article,
+the `output/` directory will contain the standalone HTML source files of your article,
+which can be shared or [published](https://github.com/rubensworks/ScholarMarkdown/wiki/Self-publishing) anywhere.
+
 ## License
 This software is released under the [MIT license](http://opensource.org/licenses/MIT).
