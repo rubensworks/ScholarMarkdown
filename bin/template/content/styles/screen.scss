@@ -14,6 +14,10 @@
   }
 }
 
+.printonly {
+  display: none;
+}
+
 img.plot {
   width: auto;
   height: 16em;
@@ -395,3 +399,4 @@ tbody th {
 }
 
 @import "shared.scss";
+@import "shared_override.scss";

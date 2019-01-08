@@ -17,3 +17,10 @@ end
 puts 'Initializing project at ' + targetdir
 Dir.mkdir(targetdir)
 FileUtils.copy_entry(templatedir, targetdir)
+
+type = ARGV[1]
+if type == 'acm'
+  # Override with ACM-specific files
+  templatediracm = File.dirname(__FILE__) + '/template_override_acm'
+  FileUtils.copy_entry(templatediracm, targetdir)
+end
