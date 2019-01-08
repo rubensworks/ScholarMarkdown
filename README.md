@@ -27,6 +27,8 @@ $ cd my-awesome-article
 $ bundle install
 ```
 
+_If you want to output articles in the double-column ACM template, execute `generate-scholarmarkdown my-awesome-article acm` instead._
+
 #### 3. Compile your article
 
 _This will start a live webserver that will continuously compile your article files upon any change._
