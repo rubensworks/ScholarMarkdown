@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Ruben Taelman".freeze]
-  s.date = "2019-01-08"
+  s.date = "2019-05-16"
   s.email = "rubensworks@gmail.com".freeze
   s.executables = ["generate-scholarmarkdown".freeze]
   s.extra_rdoc_files = [
@@ -58,6 +58,7 @@ Gem::Specification.new do |s|
     "lib/scholarmarkdown/filter/acronym.rb",
     "lib/scholarmarkdown/filter/annotations.rb",
     "lib/scholarmarkdown/filter/citation.rb",
+    "lib/scholarmarkdown/filter/citation_metadata.rb",
     "lib/scholarmarkdown/filter/dokieli_ui.rb",
     "lib/scholarmarkdown/filter/headerids_to_section.rb",
     "lib/scholarmarkdown/filter/hyphenate_iri.rb",
