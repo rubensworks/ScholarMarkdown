@@ -18,6 +18,12 @@ end
 
 # Create a person block
 def person name, website, profile
+  # Add person to global list of authors
+  unless $authors
+    $authors = []
+  end
+  $authors.push(name)
+
   if not website
     h name
   elsif not profile
