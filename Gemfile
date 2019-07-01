@@ -11,6 +11,7 @@ gem 'bibmarkdown', '~> 2.0.0'
 # math
 gem 'katex'
 gem 'sskatex'
+gem 'kramdown-math-sskatex'
 gem 'execjs'
 gem 'therubyracer' # embedded V8 JavaScript engine
 

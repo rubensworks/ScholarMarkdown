@@ -1,5 +1,6 @@
 require 'katex'
 require 'sskatex'
+require 'kramdown-math-sskatex'
 
 # Make sure our KaTeX assets are available (this can be disabled if you are not using math-mode)
 def preprocess_katex_assets

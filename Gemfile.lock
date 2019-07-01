@@ -52,6 +52,10 @@ GEM
       semver2 (~> 3)
     katex (0.4.3)
       execjs (~> 2.7)
+    kramdown (2.1.0)
+    kramdown-math-sskatex (1.0.0)
+      kramdown (~> 2.0)
+      sskatex (>= 0.9.37)
     latex-decode (0.3.1)
     libv8 (3.16.14.19)
     mini_portile2 (2.3.0)
@@ -94,9 +98,10 @@ DEPENDENCIES
   i18n
   juwelier (~> 2.4.7)
   katex
+  kramdown-math-sskatex
   latex-decode
   sskatex
   therubyracer
 
 BUNDLED WITH
-   1.14.6
+   1.16.2
