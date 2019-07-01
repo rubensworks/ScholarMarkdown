@@ -76,3 +76,15 @@ dl {
 var {
   font-style: italic;
 }
+
+main {
+  h1.no-label-increment,
+  h2.no-label-increment,
+  h3.no-label-increment,
+  h4.no-label-increment,
+  h5.no-label-increment {
+    &::before {
+      content: "";
+    }
+  }
+}

@@ -16,15 +16,19 @@ def create_labels content
   appendix = content[%r{<div id="appendix"[^>]*>.*</div>}m] || ""
   labels = (main + appendix).scan(/<(\w+)([^>]*\s+id="([^"]+)"[^>]*)>/)
                .map do |tag, attribute_list, id|
-    type = label_type_for tag.downcase.to_sym, attribute_list
-    number = number_for type
+    attributes = parse_attributes(attribute_list)
+    type = label_type_for tag.downcase.to_sym, attributes
+    number = 0
+    if attributes[:class].nil? or !attributes[:class].include? 'no-label-increment'
+      number = number_for type
+    end
     [id, "#{type} #{number}"]
   end
   labels.to_h
 end
 
 # Determines the label type of a given element
-def label_type_for tag, attribute_list
+def label_type_for tag, attributes
   case tag
   when :h2
     'Section'
@@ -33,8 +37,8 @@ def label_type_for tag, attribute_list
   when :h4
     'Subsubsection'
   when :figure
-    unless parse_attributes(attribute_list)[:class].nil?
-      for clazz in parse_attributes(attribute_list)[:class].split(' ') do
+    unless attributes[:class].nil?
+      for clazz in attributes[:class].split(' ') do
         case clazz
         when 'algorithm'
           return 'Algorithm'
