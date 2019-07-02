@@ -48,6 +48,8 @@ def label_type_for tag, attributes
           return 'Table'
         when 'equation'
           return 'Equation'
+        when 'subfigure'
+          return 'Subfig.'
         end
       end
     end
@@ -72,12 +74,28 @@ def number_for type
     number = "#{reference_counts['Section']}.#{number}"
   when 'Subsubsection'
     number = "#{reference_counts['Section']}.#{reference_counts['Subsection']}.#{number}"
+  when 'Fig.'
+    @reference_counts['Subfig.'] = 0
+  when 'Subfig.'
+    number = "#{reference_counts['Fig.']}.#{number}"
   end
   number
 end
 
 # Adds labels to referenceable figures
 def add_labels_to_figures content, labels
+  # Subfigures
+  content.gsub! %r{<figure[^>]*\s+id="([^"]+)"\s+class="[^"]*subfigure[^"]*".*?<figcaption>(?:\s*<p>)?}m do |match|
+    id=$1
+    match = match.sub! '<figcaption>', '<figcaption class="for-subfigure">'
+    if labels.key? id
+      %{#{match}<span class="label">#{h labels[id]}:</span> }
+    else
+      match
+    end
+  end
+
+  # Main figures
   content.gsub! %r{<figure[^>]*\s+id="([^"]+)".*?<figcaption>(?:\s*<p>)?}m do |match|
     if labels.key? $1
       %{#{match}<span class="label">#{h labels[$1]}:</span> }
