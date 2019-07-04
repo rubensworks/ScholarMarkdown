@@ -1,8 +1,22 @@
 # Add labels to elements such as figures and sections, and make them referencable.
-Nanoc::Filter.define(:scholar_labelify) do |content|
+
+DOCUMENT_SECTIONS = [
+  'Chapter',
+  'Section',
+  'Subsection',
+  'Subsubsection'
+]
+
+Nanoc::Filter.define(:scholar_labelify) do |content, params|
+  if params[:chapters]
+    document_sections = DOCUMENT_SECTIONS
+  else
+    document_sections = DOCUMENT_SECTIONS[1, DOCUMENT_SECTIONS.length]
+  end
+
   content = content.dup
   
-  labels = create_labels content
+  labels = create_labels document_sections, content
   add_labels_to_figures content, labels
   set_reference_labels content, labels
   
@@ -10,17 +24,17 @@ Nanoc::Filter.define(:scholar_labelify) do |content|
 end
 
 # Creates labels for referenceable elements
-def create_labels content
+def create_labels document_sections, content
   @reference_counts = {}
   main = content[%r{<main>.*</main>}m]
   appendix = content[%r{<div id="appendix"[^>]*>.*</div>}m] || ""
   labels = (main + appendix).scan(/<(\w+)([^>]*\s+id="([^"]+)"[^>]*)>/)
                .map do |tag, attribute_list, id|
     attributes = parse_attributes(attribute_list)
-    type = label_type_for tag.downcase.to_sym, attributes
+    type = label_type_for document_sections, tag.downcase.to_sym, attributes
     number = 0
     if attributes[:class].nil? or !attributes[:class].include? 'no-label-increment'
-      number = number_for type
+      number = number_for document_sections, type
     end
     [id, "#{type} #{number}"]
   end
@@ -28,14 +42,14 @@ def create_labels content
 end
 
 # Determines the label type of a given element
-def label_type_for tag, attributes
+def label_type_for document_sections, tag, attributes
   case tag
   when :h2
-    'Section'
+    document_sections[0]
   when :h3
-    'Subsection'
+    document_sections[1]
   when :h4
-    'Subsubsection'
+    document_sections[2]
   when :figure
     unless attributes[:class].nil?
       for clazz in attributes[:class].split(' ') do
@@ -59,21 +73,21 @@ def label_type_for tag, attributes
   end
 end
 
-def number_for type
+def number_for document_sections, type
   # Determine number of elements
   @reference_counts[type] ||= 0
   number = @reference_counts[type] += 1
 
   # Perform hierarchical numbering when needed
   case type
-  when 'Section'
-    @reference_counts['Subsection'] = 0
-    @reference_counts['Subsubsection'] = 0
-  when 'Subsection'
-    @reference_counts['Subsubsection'] = 0
-    number = "#{reference_counts['Section']}.#{number}"
-  when 'Subsubsection'
-    number = "#{reference_counts['Section']}.#{reference_counts['Subsection']}.#{number}"
+  when document_sections[0]
+    @reference_counts[document_sections[1]] = 0
+    @reference_counts[document_sections[2]] = 0
+  when document_sections[1]
+    @reference_counts[document_sections[2]] = 0
+    number = "#{reference_counts[document_sections[0]]}.#{number}"
+  when document_sections[2]
+    number = "#{reference_counts[document_sections[0]]}.#{reference_counts[document_sections[1]]}.#{number}"
   when 'Fig.'
     @reference_counts['Subfig.'] = 0
   when 'Subfig.'
