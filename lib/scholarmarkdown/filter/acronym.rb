@@ -7,7 +7,7 @@ Nanoc::Filter.define(:scholar_acronym) do |content, params|
   # Annotate all occurrences with their full name
   transformed = content.dup
   acronyms.each do |row|
-    transformed.gsub! %r{(?<=[^a-zA-Z0-9])#{row['abbreviation']}(?=[^a-zA-Z0-9])} do |match|
+    transformed.gsub! %r{(?<=[\s\.,!?])#{row['abbreviation']}(?=[\s\.,!?])} do |match|
       %{<abbr title='#{row['full']}'>#{row['abbreviation']}</abbr>}
     end
   end
