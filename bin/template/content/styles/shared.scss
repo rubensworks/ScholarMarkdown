@@ -88,3 +88,11 @@ main {
     }
   }
 }
+
+ol.index-entries {
+  list-style-type: decimal;
+
+  li {
+    margin-left: 1em;
+  }
+}

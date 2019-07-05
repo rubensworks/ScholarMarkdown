@@ -15,26 +15,29 @@ Nanoc::Filter.define(:scholar_labelify) do |content, params|
   end
 
   content = content.dup
-  
-  labels = create_labels document_sections, content
+  sections_index = []
+
+  labels = create_labels document_sections, sections_index, content
   add_labels_to_figures content, labels
   set_reference_labels content, labels
   
+  serialize_sections_index sections_index, params[:sections_index_depth] || 3, content
+
   content
 end
 
 # Creates labels for referenceable elements
-def create_labels document_sections, content
+def create_labels document_sections, sections_index, content
   @reference_counts = {}
   main = content[%r{<main>.*</main>}m]
   appendix = content[%r{<div id="appendix"[^>]*>.*</div>}m] || ""
-  labels = (main + appendix).scan(/<(\w+)([^>]*\s+id="([^"]+)"[^>]*)>/)
-               .map do |tag, attribute_list, id|
+  labels = (main + appendix).scan(/<(\w+)([^>]*\s+id="([^"]+)"[^>]*)>([^<]*)</)
+               .map do |tag, attribute_list, id, name|
     attributes = parse_attributes(attribute_list)
     type = label_type_for document_sections, tag.downcase.to_sym, attributes
     number = 0
     if attributes[:class].nil? or !attributes[:class].include? 'no-label-increment'
-      number = number_for document_sections, type
+      number = number_for document_sections, type, name, id, sections_index
     end
     [id, "#{type} #{number}"]
   end
@@ -73,7 +76,7 @@ def label_type_for document_sections, tag, attributes
   end
 end
 
-def number_for document_sections, type
+def number_for document_sections, type, name, id, sections_index
   # Determine number of elements
   @reference_counts[type] ||= 0
   number = @reference_counts[type] += 1
@@ -83,11 +86,14 @@ def number_for document_sections, type
   when document_sections[0]
     @reference_counts[document_sections[1]] = 0
     @reference_counts[document_sections[2]] = 0
+    sections_index[@reference_counts[document_sections[0]] - 1] = { :name => name, :id => id, :children => [] }
   when document_sections[1]
     @reference_counts[document_sections[2]] = 0
     number = "#{reference_counts[document_sections[0]]}.#{number}"
+    sections_index[@reference_counts[document_sections[0]] - 1][:children][@reference_counts[document_sections[1]] - 1] = { :name => name, :id => id, :children => [] }
   when document_sections[2]
     number = "#{reference_counts[document_sections[0]]}.#{reference_counts[document_sections[1]]}.#{number}"
+    sections_index[@reference_counts[document_sections[0]] - 1][:children][@reference_counts[document_sections[1]] - 1][:children][@reference_counts[document_sections[2]] - 1] = { :name => name, :id => id, :children => [] }
   when 'Fig.'
     @reference_counts['Subfig.'] = 0
   when 'Subfig.'
@@ -135,4 +141,27 @@ def parse_attributes attribute_list
   attribute_list.scan(/\s*(\w+)\s*=\s*"([^"]+)"\s*/)
                 .map { |k,v| [k.downcase.to_sym, v] }
                 .to_h
+end
+
+# Replace '<div id="toc-index"></div>' with the sections index
+def serialize_sections_index sections_index, max_depth, content
+  content.gsub! %r{<div id="toc-index"></div>} do |match|
+    table = serialize_sections_index_row sections_index, max_depth, 0, true
+    table
+  end
+end
+
+# Serialize a single row of index entries, and recursively create the index for sub-entries
+def serialize_sections_index_row sections_index, max_depth, depth, root
+  if max_depth == 0
+    return ""
+  end
+
+  table = "<ol class=\"#{root ? "index-entries index-entries-root" : "index-entries"}\" depth=\"#{depth}\">"
+  sections_index.each do |section|
+    index_sub = serialize_sections_index_row section[:children], max_depth - 1, depth + 1, false
+    table += "<li><a href=\"##{section[:id]}\" class=\"index-entry-name\">#{section[:name]}</a>#{index_sub}</li>"
+  end
+  table += "</ol>"
+  table
 end

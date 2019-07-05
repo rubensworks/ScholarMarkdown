@@ -7,3 +7,21 @@ header {
     display: none;
   }
 }
+
+// Table of contents
+ol.index-entries {
+  margin-bottom: 0;
+}
+
+ol.index-entries[depth="0"] {
+  li {
+    font-weight: bold;
+  }
+}
+
+ol.index-entries[depth="1"] {
+  margin-bottom: 1em;
+  li {
+    font-weight: normal;
+  }
+}

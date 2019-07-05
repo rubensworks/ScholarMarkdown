@@ -398,5 +398,10 @@ tbody th {
   text-align:left;
 }
 
+// Hide table of contents in screen-mode
+ol.index-entries {
+  display: none;
+}
+
 @import "shared.scss";
 @import "shared_override.scss";
