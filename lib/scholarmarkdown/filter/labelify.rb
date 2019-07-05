@@ -145,9 +145,8 @@ end
 
 # Replace '<div id="toc-index"></div>' with the sections index
 def serialize_sections_index sections_index, max_depth, content
-  content.gsub! %r{<div id="toc-index"></div>} do |match|
-    table = serialize_sections_index_row sections_index, max_depth, 0, true
-    table
+  content.gsub! %r{<div id="scholarmarkdown-toc-index"></div>} do |match|
+    serialize_sections_index_row sections_index, max_depth, 0, true
   end
 end
 
