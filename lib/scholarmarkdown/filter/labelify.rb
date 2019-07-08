@@ -31,7 +31,7 @@ def create_labels document_sections, sections_index, content
   @reference_counts = {}
   main = content[%r{<main>.*</main>}m]
   appendix = content[%r{<div id="appendix"[^>]*>.*</div>}m] || ""
-  labels = (main + appendix).scan(/<(\w+)([^>]*\s+id="([^"]+)"[^>]*)>([^<]*)</)
+  labels = (main + appendix).scan(/<(\w+)([^>]*\s+id="([^"]+)"[^>]*)>([^<]*)(?=<)/)
                .map do |tag, attribute_list, id, name|
     attributes = parse_attributes(attribute_list)
     type = label_type_for document_sections, tag.downcase.to_sym, attributes
