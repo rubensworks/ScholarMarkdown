@@ -4,13 +4,17 @@ require 'erb'
 include ERB::Util
 
 # Create a section block with the given file contents
-def section id
+def section id, classes = nil
+  section_suffix=''
+  if classes
+    section_suffix=" class=\"" + classes + "\""
+  end
   item = @items["/#{id.to_s}.*"]
   if not item
     raise "Could not find the file '" + id.to_s + "'"
   end
   <<-HTML
-<section markdown="block">
+<section markdown="block"#{section_suffix}>
 #{item.raw_content}
 </section>
   HTML
