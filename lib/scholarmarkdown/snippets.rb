@@ -35,6 +35,6 @@ def person name, website, profile, mainAuthor = true
   elsif not profile
     %{<a href="#{h website}">#{h name}</a>}
   else
-    %{<a href="#{h website}" typeof="http://xmlns.com/foaf/0.1/Person" resource="#{profile}">#{h name}</a>}
+    %{<a property="foaf:maker schema:creator schema:author" href="#{h website}" typeof="foaf:Person schema:Person" resource="#{profile}">#{h name}</a>}
   end
 end
