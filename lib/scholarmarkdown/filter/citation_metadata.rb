@@ -20,7 +20,7 @@ Nanoc::Filter.define(:scholar_citation_metadata) do |content, params|
   # Add citation meta tags at the end of the <head>
   content.gsub! %r{\<\/head\>} do |match|
     <<-HTML
-  <meta name="citation_title" content="#{item[:title]}">
+  <meta name="citation_title" content="#{item[:title].gsub(/[\n]/, ' ')}">
   #{authors}
   #{additionalTags}
 </head>

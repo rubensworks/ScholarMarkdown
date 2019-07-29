@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta charset="utf-8" />
-  <title><%= h @item[:title] %></title>
+  <title><%= h @item[:title].gsub(/[\n]/, ' ') %></title>
   <link rel="stylesheet" media="screen" href="styles/screen.css" />
   <link rel="stylesheet" media="print"  href="styles/print.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
