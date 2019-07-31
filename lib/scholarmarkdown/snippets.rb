@@ -14,8 +14,10 @@ def section id, classes = nil
     raise "Could not find the file '" + id.to_s + "'"
   end
   <<-HTML
-<section markdown="block"#{section_suffix}>
+<section #{section_suffix}>
+<div datatype="rdf:HTML" property="schema:description" markdown="block">
 #{item.raw_content}
+</div>
 </section>
   HTML
 end
