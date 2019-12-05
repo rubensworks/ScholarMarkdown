@@ -13,7 +13,7 @@ gem 'katex'
 gem 'sskatex'
 gem 'kramdown-math-sskatex'
 gem 'execjs'
-gem 'therubyracer' # embedded V8 JavaScript engine
+gem 'therubyracer', :platforms => :ruby # embedded V8 JavaScript engine
 
 group :development do
   # management of this gem
