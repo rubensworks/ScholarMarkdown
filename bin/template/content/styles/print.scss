@@ -25,3 +25,19 @@ ol.index-entries[depth="1"] {
     font-weight: normal;
   }
 }
+
+figure.numbered pre {
+  counter-reset: precode;
+
+  code {
+    &::before {
+      color: lightgray;
+      left: -1.75em;
+      text-align: right;
+      display: inline-block;
+      width: 1.5em;
+      content: counter(precode) " ";
+      counter-increment: precode;
+    }
+  }
+}
