@@ -67,6 +67,8 @@ def label_type_for document_sections, tag, attributes
           return 'Equation'
         when 'subfigure'
           return 'Subfig.'
+        when 'definition'
+          return 'Definition'
         end
       end
     end
