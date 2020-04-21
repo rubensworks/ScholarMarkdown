@@ -1,11 +1,17 @@
-#\ -p 3000
-require 'serve'
-require 'serve/rack'
+require 'rack'
 require 'rack-livereload'
-use Rack::LiveReload, no_swf: true
 
-root = File.dirname(__FILE__) + '/output'
-run Rack::Cascade.new [
-  Serve::RackAdapter.new(root),
-  Rack::Directory.new(root),
-]
+class IndexRewriter
+  def initialize app
+    @app = app
+  end
+
+  def call env
+    env["PATH_INFO"].gsub! /\/$/, '/index.html'
+    @app.call env
+  end
+end
+
+use IndexRewriter
+use Rack::LiveReload
+run Rack::File.new 'output'
