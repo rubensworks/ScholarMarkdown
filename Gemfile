@@ -17,6 +17,6 @@ gem 'therubyracer', :platforms => :ruby # embedded V8 JavaScript engine
 
 group :development do
   # management of this gem
-  gem "bundler", "~> 1.0"
+  gem "bundler", "~> 2.0"
   gem "juwelier", "~> 2.4.7"
 end
