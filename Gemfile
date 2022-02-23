@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# webserver
+gem 'puma'
+
 # references
 gem 'i18n'
 gem 'bibtex-ruby'
