@@ -78,7 +78,11 @@ GEM
       sskatex (>= 0.9.37)
     latex-decode (0.3.2)
     libv8 (3.16.14.19)
+    libv8-node (16.10.0.0)
+    libv8-node (16.10.0.0-x86_64-darwin-19)
     mini_portile2 (2.6.1)
+    mini_racer (0.6.3)
+      libv8-node (~> 16.10.0.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -86,8 +90,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
-      racc (~> 1.4)
-    nokogiri (1.12.4-x86_64-darwin)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -131,6 +133,8 @@ DEPENDENCIES
   katex
   kramdown-math-sskatex
   latex-decode
+  libv8-node (= 16.10.0.0)
+  mini_racer
   puma
   sskatex
   therubyracer
