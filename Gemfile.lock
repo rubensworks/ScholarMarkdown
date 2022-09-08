@@ -77,7 +77,6 @@ GEM
       kramdown (~> 2.0)
       sskatex (>= 0.9.37)
     latex-decode (0.3.2)
-    libv8 (3.16.14.19)
     libv8-node (16.10.0.0)
     libv8-node (16.10.0.0-x86_64-darwin-19)
     mini_portile2 (2.6.1)
@@ -106,15 +105,11 @@ GEM
     rake (13.0.6)
     rchardet (1.8.0)
     rdoc (6.3.2)
-    ref (2.0.0)
     rexml (3.2.5)
     ruby2_keywords (0.0.5)
     semver2 (3.4.2)
     sskatex (0.9.39)
       execjs (~> 2.7)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thread_safe (0.3.6)
 
 PLATFORMS
@@ -137,7 +132,6 @@ DEPENDENCIES
   mini_racer
   puma
   sskatex
-  therubyracer
 
 BUNDLED WITH
    2.2.28
