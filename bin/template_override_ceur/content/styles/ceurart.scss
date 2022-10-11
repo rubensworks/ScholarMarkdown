@@ -1,0 +1,1077 @@
+/** CEUR ART: http://ceur-ws.org/Vol-XXX/
+ *
+ * Derived from ACM SIG, created by:
+ * Sarven Capadisli <info@csarven.ca> http://csarven.ca/#i
+ * http://www.apache.org/licenses/LICENSE-2.0.html Apache License, Version 2.0
+ * https://github.com/linkeddata/dokieli
+ */
+
+/*
+ACM SIG template styles http://www.acm.org/sigs/publications/sigguide-v2.2sp
+*/
+
+@media print {
+@page {
+margin:3cm 3cm 5.5cm 3cm;
+}
+
+#repeating-title {
+  display: none;
+}
+
+body {
+font-size:12pt !important;
+padding:0 !important;
+margin:0 auto !important;
+width:18cm !important;
+height:19.06cm !important; /*US Letter - ACM Height */
+}
+
+h1,h2,h3,h4,h5,h6 {
+overflow:hidden;
+page-break-after:avoid;
+margin-bottom:8pt;
+}
+h2 { font-size:16pt !important; }
+h3 { font-size:15pt !important; }
+h4 { font-size:14pt !important; }
+h5 { font-size:12pt !important; }
+h6 { font-size:12pt !important; }
+h1 sup { font-size:9pt !important; }
+
+body > nav,
+body > header nav,
+body > footer nav { display:none; }
+
+#abstract {
+padding:0 0 0 4em;
+margin:0 0 2em 0;
+line-height: 1.1em;
+}
+#abstract h2 {
+margin-bottom: 0;
+font-size: 14pt !important;
+}
+
+a, abbr {
+text-decoration:none;
+color:#000;
+}
+audio { display:none; }
+iframe { display:none !important; }
+
+#references ol {
+font-family:"Linux Libertine", serif;
+font-size:12pt;
+}
+
+.author-name {
+font-size:12pt;
+display:block;
+}
+
+#affiliations {
+font-style: italic;
+}
+
+.author-org {
+font-size:10pt;
+display:block;
+}
+
+.author-email {
+font-size:10pt;
+font-style:italic;
+display:block;
+}
+
+.blink {
+animation:none;
+-webkit-animation:none;
+}
+
+button {
+margin:0 !important;
+padding:0 !important;
+font-size:9pt;
+}
+
+figure pre {
+font-size:6pt;
+}
+
+}
+
+
+* { margin:0; padding:0; filter:none !important; }
+img { border:0; }
+
+h2, h3, h4, h5, h6, p, ul, ol, li, pre, figure {
+orphans:2;
+widows:2;
+}
+
+body {
+font-size:100%;
+font-family:"Linux Libertine", serif;
+/*position:relative;*/
+counter-reset:section;
+counter-reset:sub-section;
+margin:0 auto;
+padding:2em 0;
+width:56.06em;
+-moz-hyphens:auto;
+-webkit-hyphens:auto;
+-ms-hyphens:auto;
+hyphens:auto;
+line-height:1.3;
+}
+
+main {
+  section p {
+  text-indent:1em;
+  }
+}
+
+h1, #authors, #keywords, #categories-and-subject-descriptors, #general-terms, #references, pre, code, samp {
+-moz-hyphens:none;
+-webkit-hyphens:none;
+-ms-hyphens:none;
+hyphens:none;
+}
+
+#keywords, #ccsconcepts {
+  display: block;
+  margin-bottom: 0.5em;
+  text-transform:capitalize;
+  .title {
+    text-transform: uppercase;
+    display: block;
+    font-weight: bold;
+    font-size:1.333em;
+    margin: 0.75em 0 0.25em;
+  }
+}
+
+.firstpagefooter {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 48%;
+}
+
+.footnotecopyright {
+  border-top: 1px solid black;
+  padding-top: 3px;
+  display: block;
+  line-height:1.1em;
+  font-size:0.8em;
+}
+
+#acmreferenceformat {
+  display: block;
+  line-height:1.2em;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+  .title {
+    display: block;
+    font-weight: bold;
+    margin: 0.5em 0 0.25em;
+  }
+}
+
+#acknowledgements {
+  margin-top: 0.6em;
+}
+
+header {
+  .actions, .context {
+    display: none;
+  }
+}
+
+table, figure img, object, iframe, figure, audio, video, canvas { page-break-inside:avoid; }
+object, iframe {
+width:100% !important;
+height:auto !important;
+min-height:240px !important;
+}
+figure img, video { max-width:100% !important; height:auto !important; }
+
+
+ol, ul, table, figure {
+margin-bottom:1em;
+}
+ul, ol {
+margin-left:1em;
+}
+
+h1 {
+margin:0.75em auto 0.25em auto;
+font-family: 'Linux Biolinum', sans-serif;
+font-size:1.8em;
+text-align: left;
+}
+aside article h1 { text-align:left; }
+h1 sup,
+#subtitle sup,
+#authors sup {
+font-weight:300;
+font-size:0.5715em;
+position:relative;
+top:-3px;
+}
+#authors sup {
+margin:0 0.1em;
+}
+
+h2, h3,
+#document-identifier dt,
+#document-published dt,
+#document-modified dt,
+#document-appeared dt,
+#document-in-reply-to dt,
+#document-annotation-service dt,
+#document-license dt,
+#document-format dt,
+#document-inbox dt,
+#document-see-also dt,
+#appendix dt {
+font-size:1.333em;
+}
+h4 {
+font-size:1.2226em;
+}
+h2, dt {
+font-weight:bold;
+text-transform:capitalize;
+}
+h3 {
+text-transform:capitalize;
+}
+h4 {
+font-weight:normal;
+font-style:italic;
+text-transform:capitalize;
+}
+
+#subtitle {
+font-family:Arial, sans-serif;
+font-size:1.5em;
+text-align:center;
+}
+h2 {
+margin-top:1.5em;
+}
+#content section:first-child h2 {
+margin-top:0;
+}
+
+h3, h4, h5, h6 {
+margin-top:1em;
+}
+
+main section:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]) {
+counter-increment:section;
+counter-reset:sub-section;
+}
+main section:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]) h2 {
+counter-reset:sub-section;
+}
+main section:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]) h3 {
+counter-increment:sub-section;
+counter-reset:sub-sub-section;
+}
+main section:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]) h4 {
+counter-increment:sub-sub-section;
+counter-reset:sub-sub-sub-section;
+}
+main section:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]):not([id^=table-of-]) h2:before {
+content:counter(section) "." "\00a0\00a0";
+}
+section h3:before {
+content:counter(section) "." counter(sub-section) "." "\00a0";
+}
+section h4:before {
+content:counter(section)"." counter(sub-section) "." counter(sub-sub-section) "." "\00a0";
+}
+
+p, ol, ul, dl {
+text-align:justify;
+}
+
+li {
+/*list-style-position:inside;*/
+margin-bottom:0.25em;
+}
+
+code, samp {
+font-size:0.95em;
+font-family:"Courier New", monospace;
+word-wrap:break-word;
+}
+
+p + math, ul + math, ol + math, dl + math, dd > math, div + math, section + math {
+text-align:center;
+margin-top:1em;
+margin-bottom:1em;
+}
+p + math, ul + math, ol + math, dl + math, dd > math, div + math, section + math,
+figure math {
+display:block;
+font-size:0.95em;
+}
+figure object,
+figure img,
+figure pre {
+margin-bottom:1em;
+}
+figcaption,
+caption {
+font-weight:bold;
+text-align:center;
+}
+
+.toc, .toc ol {
+list-style:none;
+-moz-hyphens:none;
+-webkit-hyphens:none;
+-ms-hyphens:none;
+hyphens:none;
+}
+.toc ol,
+.toc li {
+margin:0;
+text-align:left !important;
+}
+
+.toc li {
+list-style-position:outside;
+list-style-type:none;
+margin-left:1.25em;
+margin-bottom:0.25em;
+}
+.toc li:before {
+margin-left:-1.25em;
+}
+
+.toc li:not([data-id=abstract]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:s;
+counter-reset:sub-s;
+}
+
+.toc li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:sub-s;
+counter-reset:sub-sub-s;
+}
+.toc li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:sub-sub-s;
+counter-reset:sub-sub-sub-s;
+}
+.toc li li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:sub-sub-sub-s;
+counter-reset:sub-sub-sub-sub-s;
+}
+.toc li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:"\00a0" counter(s) "\00a0";
+}
+.toc li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:"\00a0" counter(s) "." counter(sub-s) "\00a0";
+}
+.toc li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:"\00a0" counter(s) "." counter(sub-s) "." counter(sub-sub-s) "\00a0";
+}
+.toc li li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:"\00a0" counter(s) "." counter(sub-s) "." counter(sub-sub-s) "." counter(sub-sub-sub-s) "\00a0";
+}
+
+.toc li[data-id=abstract]:before, .toc li[data-id=document-status]:before, .toc li[data-id=keywords]:before, .toc li[data-id=references]:before, .toc li[data-id=categories-and-subject-descriptors]:before, .toc li[data-id=general-terms]:before, .toc li[data-id=appendix]:before, .toc li[data-id=contact-us]:before {
+content:"\00a0\00a0\00a0\00a0";
+}
+
+
+.tex,
+.latex {
+text-transform:uppercase;
+}
+
+.tex > span,
+.latex > span {
+line-height:0;
+text-transform:uppercase;
+}
+
+.latex > :first-child {
+margin-left:-0.36em;
+margin-right:-0.15em;
+vertical-align:0.3em;
+font-size:70%;
+}
+
+.tex > :last-child,
+.latex > :last-child {
+margin-left:-0.1667em;
+margin-right:-0.125em;
+vertical-align:-0.5ex;
+}
+
+
+dl.theorem,
+dl.definition {
+text-indent:1em;
+}
+dl.theorem dt {
+display:inline;
+font-variant:small-caps;
+font-weight:normal;
+text-transform:none;
+}
+dl.theorem dt:after {
+content:". ";
+}
+dl.theorem dd {
+display:inline;
+}
+dl.theorem dd span {
+display:inline;
+font-style:italic;
+}
+dl.definition dt {
+display:inline;
+font-weight:normal;
+text-transform:none;
+font-style:italic;
+}
+dl.definition dt:after {
+content:". ";
+}
+dl.definition dd {
+display:inline;
+}
+dl.definition dd span {
+display:inline;
+}
+dl.proof dt {
+display:inline;
+font-variant:small-caps;
+font-weight:normal;
+text-transform:none;
+}
+dl.proof dt:after {
+content:". ";
+}
+dl.proof dd {
+display:inline;
+}
+dl.proof dd span {
+display:inline;
+}
+dl.proof dd > *:last-child:after {
+content:"\00a0\00a0\25a1";
+font-size:1.5em;
+}
+
+dd {
+margin:0 0 0.5em 0;
+}
+
+tfoot dl.abbr dt,
+tfoot dl.abbr dd {
+display:inline;
+text-transform:none;
+}
+tfoot dl.abbr dd {
+margin-left:0;
+}
+tfoot dl.abbr dd:after {
+content:"\A";
+white-space:pre;
+}
+tfoot dl.abbr dt:after {
+content:": ";
+}
+tfoot dl.abbr {
+-webkit-column-count:2;
+-moz-column-count:2;
+column-count:2;
+}
+
+math * {
+padding:0;
+}
+fieldset {
+padding:1em;
+}
+fieldset ul {
+list-style-type:none;
+}
+
+
+#authors, #affiliations {
+text-align:left;
+margin:0 0 0.25em 0;
+line-height:1;
+}
+#authors ul,
+#categories-and-subject-descriptors ul,
+#keywords ul {
+margin-left:0;
+}
+#authors li,
+#affiliations li,
+#categories-and-subject-descriptors li,
+#keywords li {
+list-style-type:none;
+}
+
+#authors li {
+display:inline-block;
+vertical-align:top;
+}
+#authors li:not(:last-child):after {
+  content: ',';
+}
+#authors .first-name {
+  color: gray;
+}
+
+#author-name {
+font-size:1.333em;
+}
+
+#author-org {
+font-size:1.0835em;
+}
+
+#author-email {
+font-family:Helvetica, Arial, sans-serif;
+}
+
+
+
+
+#authors {
+position:relative;
+}
+
+#author-name,
+#author-org,
+#author-email {
+position:static;
+}
+
+
+#authors dd:nth-of-type(1) {
+position:absolute;
+top:0;
+left:1%;
+}
+#authors dd:nth-of-type(2) {
+position:absolute;
+top:0;
+left:34%;
+}
+#authors dd:nth-of-type(3) {
+position:absolute;
+top:0;
+left:67%;
+}
+#authors dd:nth-of-type(4) {
+position:absolute;
+top:6em;
+left:1%;
+}
+#authors dd:nth-of-type(5) {
+position:absolute;
+top:6em;
+left:34%;
+}
+#authors dd:nth-of-type(6) {
+position:absolute;
+top:6em;
+left:67%;
+}
+
+#author-org li:nth-of-type(1) {
+position:absolute;
+top:1.35em;
+left:1%;
+}
+#author-org li:nth-of-type(2) {
+position:absolute;
+top:1.35em;
+left:34%;
+}
+#author-org li:nth-of-type(3) {
+position:absolute;
+top:1.35em;
+left:67%;
+}
+#author-org li:nth-of-type(4) {
+position:absolute;
+top:8.65em;
+left:1%;
+}
+#author-org li:nth-of-type(5) {
+position:absolute;
+top:8.65em;
+left:34%;
+}
+#author-org li:nth-of-type(6) {
+position:absolute;
+top:8.65em;
+left:67%;
+}
+
+
+
+#author-email li:nth-of-type(1) {
+position:absolute;
+top:5em;
+left:1%;
+}
+#author-email li:nth-of-type(2) {
+position:absolute;
+top:5em;
+left:34%;
+}
+#author-email li:nth-of-type(3) {
+position:absolute;
+top:5em;
+left:67%;
+}
+#author-email li:nth-of-type(4) {
+position:absolute;
+top:13em;
+left:1%;
+}
+#author-email li:nth-of-type(5) {
+position:absolute;
+top:13em;
+left:34%;
+}
+#author-email li:nth-of-type(6) {
+position:absolute;
+top:13em;
+left:67%;
+}
+
+
+#authors dt,
+.authors dt {
+display:none;
+}
+
+#authors dd,
+#authors li {
+display:inline-block;
+line-height:1.2;
+}
+.authors dd {
+display:inline;
+}
+
+#general-terms li,
+#keywords li,
+#document-format dd {
+display:inline;
+}
+#general-terms li:after,
+#categories-and-subject-descriptors li:after {
+content:";\00a0";
+}
+#general-terms li:after,
+#keywords li:after,
+#document-format dd:after {
+content:",\00a0";
+}
+#general-terms li:last-child:after,
+#categories-and-subject-descriptors li:last-child:after,
+#keywords li:last-child:after,
+#document-format dd:last-child:after {
+content:"";
+}
+
+#general-terms h2,
+#categories-and-subject-descriptors h2 {
+text-transform:capitalize;
+}
+
+.authors dd:not(:empty):after {
+content:",\0020";
+}
+.authors dd:last-child:after {
+content:"";
+}
+
+
+article > dl[id^="document-"] {
+float:left;
+width:46%;
+margin:0 2%;
+}
+
+#document-identifier dd,
+#document-published dd,
+#document-modified dd,
+#document-appeared dd,
+#document-in-reply-to dd,
+#document-annotation-service dd,
+#document-license dd,
+#document-format dd,
+#document-inbox dd,
+#document-see-also dd {
+text-align:left;
+margin-left:0;
+}
+header #document-identifier dd,
+#document-event dt,
+#document-event dd {
+text-align:center;
+}
+
+html {
+counter-reset:figure 0;
+}
+body {
+counter-reset:listing 0;
+}
+article {
+counter-reset:table 0;
+}
+// Links
+a {
+  // Display URL of mandatory links
+  &.mandatory {
+    &:after {
+      content: ' (' attr(href) ')';
+      font-style: italic;
+    }
+  }
+}
+figure,
+audio,
+video {
+margin-top:1em;
+margin-bottom:1em;
+position:relative;
+text-align:center;
+}
+pre {
+overflow:auto;
+}
+figure pre {
+text-align:left;
+}
+
+figure.listing pre {
+border:1px solid #000;
+padding:0.5em;
+counter-reset:precode;
+margin-top:0;
+}
+figure.listing pre code:before,
+figure.listing pre samp:before {
+position:absolute;
+left:-1.75em;
+text-align:right;
+#content:counter(precode);
+counter-increment:precode;
+}
+
+
+table {
+border-collapse:collapse;
+
+/*-webkit-column-break-inside:avoid;*/
+/*-moz-column-break-inside:avoid;*/
+/*-o-column-break-inside:avoid;*/
+/*-ms-column-break-inside:avoid;*/
+/*column-break-inside:avoid;*/
+
+/*-webkit-column-break-before:avoid;*/
+/*-moz-column-break-before:avoid;*/
+/*-o-column-break-before:avoid;*/
+/*-ms-column-break-before:avoid;*/
+/*column-break-before:avoid;*/
+
+/*-webkit-column-break-after:avoid;*/
+/*-moz-column-break-after:avoid;*/
+/*-o-column-break-after:avoid;*/
+/*-ms-column-break-after:avoid;*/
+/*column-break-after:avoid;*/
+
+/*-webkit-break-inside:avoid-column;*/
+/*-moz-break-inside:avoid-column;*/
+/*-o-break-inside:avoid-column;*/
+/*-ms-break-inside:avoid-column;*/
+/*break-inside:avoid-column;*/
+
+/*-webkit-break-inside:avoid;*/
+/*-moz-break-inside:avoid;*/
+/*-o-break-inside:avoid;*/
+/*-ms-break-inside:avoid;*/
+/*break-inside:avoid;*/
+
+/*-webkit-column-break-before:always;*/
+/*-moz-column-break-before:always;*/
+/*-o-column-break-before:always;*/
+/*column-break-before:always;*/
+
+/*-webkit-column-break-before:column;*/
+/*-moz-column-break-before:column;*/
+/*-o-column-break-before:column;*/
+/*column-break-before:column;*/
+/*break-after:column;*/
+
+/*column-span:all;*/
+
+/*display:table;*/
+/*float:left;*/
+/*overflow:auto;*/
+/*display:inline-block;*/
+width:calc(100% - 2px);
+}
+th {
+border-bottom:1px solid;
+}
+table thead td:first-child,
+table tfoot td:first-child {
+border:0;
+}
+th,
+td {
+text-align:left;
+}
+.comparison-columns tbody td {
+text-align:center;
+}
+
+table {
+  width: 100%;
+}
+th {
+  font-weight: bold;
+  border-bottom:1px solid;
+}
+table thead td:first-child, table tfoot td:first-child {
+  border:0;
+}
+
+caption {
+  padding:0.1em 0;
+}
+tbody th {
+  text-align:left;
+}
+
+thead {
+  /* Chrome shows duplicate thead rows on the same page: https://bugs.chromium.org/p/chromium/issues/detail?id=24826 */
+  display: table-row-group;
+}
+
+form {
+margin:1em 0;
+}
+form li {
+margin-bottom:0.5em;
+}
+form p {
+text-indent:0;
+}
+fieldset {
+padding:1em;
+}
+legend { font-weight:bold; }
+label {
+display:inline-block;
+font-weight:bold;
+}
+form label {
+width:17%;
+vertical-align:top;
+}
+label[for=nobot] {
+width:auto;
+}
+input,
+textarea,
+label {
+padding:0.25em;
+}
+input,
+textarea,
+select,
+button {
+font-family:inherit;
+font-size:inherit;
+}
+input[type=submit] {
+font-weight:bold;
+}
+
+figcaption {
+margin-bottom:1em;
+}
+
+
+.count {
+margin-bottom:0;
+font-weight:normal;
+font-size:1em;
+}
+.count:after {
+content:':';
+}
+section article {
+margin:0 0 2em 0;
+}
+section article article {
+padding-left:2.25em;
+margin-bottom:0;
+border-left:2px solid #ccc;
+}
+section article h1,
+section article h2,
+section article h3 {
+margin-bottom:0;
+font-size:1em;
+}
+section article h1,
+section article h2,
+section article h3 {
+margin-top:0;
+}
+section article img {
+vertical-align:middle;
+margin-right:0.25em;
+}
+section article p:last-child {
+margin-bottom:0;
+}
+
+.references {
+  font-size: 1.05em;
+  line-height: 1.1em;
+  margin-top: 0.35em;
+  dt {
+    width: 16px;
+    font-size: 1.1em;
+    font-weight: normal;
+    text-align: right;
+    float: left;
+  }
+  dd {
+    margin: 0;
+    padding-left: 0.5em;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+#references ol {
+counter-reset:list-order;
+margin-left:0;
+}
+#references ol li {
+counter-increment:list-order;
+list-style-position:outside;
+list-style-type:none;
+margin-left:1.85em;
+text-align:left;
+}
+#references ol li:before {
+content:"[" counter(list-order) "]\00a0\00a0\00a0";
+margin-left:-1.85em;
+}
+
+#appendix section:first-child h2 {
+margin-top:0;
+}
+
+#appendix section {
+counter-increment:appendix;
+counter-reset:sub-appendix;
+}
+#appendix section section {
+counter-increment:sub-appendix;
+counter-reset:sub-sub-appendix;
+}
+#appendix section section section {
+counter-increment:sub-sub-appendix;
+}
+#appendix section h2:before {
+content:counter(appendix, upper-latin) "\00a0\00a0\00a0\00a0";
+}
+#appendix section section h3:before {
+content:counter(appendix, upper-latin) "." counter(sub-appendix) "\00a0\00a0\00a0";
+}
+#appendix section section section h4:before {
+content:counter(appendix, upper-latin) "." counter(sub-appendix)"." counter(sub-sub-appendix) "\00a0\00a0\00a0";
+}
+
+
+#interaction-write,
+dl.entry-author,
+dl.datetimestamp,
+dl.entry-replies,
+dl.article_labels * {
+display:none;
+}
+
+body > header,
+body > footer {
+text-align:left;
+}
+body > header {
+margin-bottom:1em;
+}
+body > footer {
+margin-top:2em;
+}
+
+header nav ul {
+text-align:center;
+}
+
+header nav li:first-child:before {
+content:"";
+}
+header nav li:before {
+content:"* ";
+}
+header nav li {
+display:inline;
+list-style-type:none;
+}
+
+ul#program-committee {
+column-count: 2;
+-moz-column-count: 2;
+-webkit-column-count: 2;
+text-align:left;
+}
+
+.on {
+display:block;
+}
+
+@media only screen
+and (min-device-width:320px)
+and (max-device-width:568px) {
+body { font-size:100%; }
+#content {
+-webkit-column-count:1;
+-moz-column-count:1;
+column-count:1;
+}
+}
+
+@media only screen
+and (min-device-width:768px)
+and (max-device-width:1024px) {
+body {
+font-size:100%;
+}
+}

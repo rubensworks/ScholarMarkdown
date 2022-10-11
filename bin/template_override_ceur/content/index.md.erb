@@ -1,0 +1,33 @@
+---
+title: "My Awesome Article"
+---
+<header markdown="1">
+# <%= @item[:title] %>
+
+{:#authors}
+- <%= person 'John Doe', 'http://www.example.org/', 'http://www.example.org/#me' %>
+
+{:#affiliations}
+- {:#myaffiliation} Awesome Inc.
+
+</header>
+
+<!-- Hack to make our custom fonts load in print-mode -->
+<!-- https://stackoverflow.com/questions/39364259/chrome-print-preview-doesnt-load-media-only-print-font-face -->
+<span class='printfont1'> </span>
+<span class='printfont2'> </span>
+<span class='printfont3'> </span>
+<span class='printfont4'> </span>
+
+<div id="content">
+  <%= section 'abstract' %>
+
+<main>
+  <!-- Add sections by specifying their file name, excluding the '.md' suffix. -->
+  <%= section 'introduction' %>
+</main>
+
+<footer></footer>
+
+</div>
+</div>

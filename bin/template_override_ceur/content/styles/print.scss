@@ -1,0 +1,9 @@
+@import "ceurart.scss";
+@import "shared.scss";
+@import "shared_override.scss";
+
+header {
+  .actions, .context {
+    display: none;
+  }
+}
