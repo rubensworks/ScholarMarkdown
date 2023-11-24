@@ -57,7 +57,7 @@ display:block;
 }
 
 #affiliations {
-display:none;
+
 }
 
 .author-org {
@@ -298,10 +298,13 @@ counter-reset:sub-sub-sub-section;
 main section:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]):not([id^=table-of-]) > h2:before {
 content:counter(section) "\00a0\00a0\00a0\00a0";
 }
-section > h3:before {
+main section h2:before {
+content:counter(section) "\00a0\00a0\00a0";
+}
+main section h3:before {
 content:counter(section) "." counter(sub-section) "\00a0\00a0\00a0";
 }
-section > h4:before {
+main section h4:before {
 content:counter(section)"." counter(sub-section) "." counter(sub-sub-section) "\00a0\00a0\00a0";
 }
 
@@ -557,6 +560,7 @@ font-family:Helvetica, Arial, sans-serif;
 
 #authors {
 position:relative;
+font-size:1.2em;
 }
 
 #author-name,
