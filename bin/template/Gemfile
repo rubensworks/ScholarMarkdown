@@ -23,7 +23,7 @@ group :development do
   gem 'guard-nanoc', '~> 2.1.2'
   gem 'guard-rack'
   gem 'guard-livereload'
-  gem 'rack'
+  gem 'rack', '~> 3.0.9.1'
   gem 'rackup'
   gem 'rack-livereload'
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
