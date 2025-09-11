@@ -145,7 +145,6 @@ hyphens:none;
   margin-bottom: 0.5em;
   text-transform:capitalize;
   .title {
-    text-transform: uppercase;
     display: block;
     font-weight: bold;
     font-size:1.333em;
@@ -533,15 +532,15 @@ vertical-align:top;
   content: ',';
 }
 #authors .first-name {
-  color: gray;
+  color: lightgray;
 }
 
 #author-name {
 font-size:1.333em;
 }
 
-#author-org {
-font-size:1.0835em;
+#affiliations li {
+font-size:0.90em;
 }
 
 #author-email {
