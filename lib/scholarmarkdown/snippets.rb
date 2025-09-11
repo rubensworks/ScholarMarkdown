@@ -40,10 +40,10 @@ def person(name, website, profile, mainAuthor = true)
     end
 
   if not website
-    display_name
+    %{<span id="author-name">#{display_name}</span>}
   elsif not profile
-    %{<a href="#{h website}">#{display_name}</a>}
+    %{<a id="author-name" href="#{h website}">#{display_name}</a>}
   else
-    %{<a rev="lsc:participatesIn" property="foaf:maker schema:creator schema:author schema:publisher" href="#{h website}" typeof="foaf:Person schema:Person" resource="#{profile}">#{display_name}</a>}
+    %{<a id="author-name" rev="lsc:participatesIn" property="foaf:maker schema:creator schema:author schema:publisher" href="#{h website}" typeof="foaf:Person schema:Person" resource="#{profile}">#{display_name}</a>}
   end
 end
