@@ -23,20 +23,27 @@ def section id, classes = nil
 end
 
 # Create a person block
-def person name, website, profile, mainAuthor = true
+def person(name, website, profile, mainAuthor = true)
   if mainAuthor
     # Add person to global list of authors
-    unless $authors
-      $authors = []
-    end
+    $authors ||= []
     $authors.push(name)
   end
 
+  # Handle "Firstname, Lastname" format
+  display_name =
+    if name.include?(",")
+      firstname, lastname = name.split(",", 2).map(&:strip)
+      %{<span class="first-name">#{h firstname}</span> #{h lastname}}
+    else
+      h name
+    end
+
   if not website
-    h name
+    display_name
   elsif not profile
-    %{<a href="#{h website}">#{h name}</a>}
+    %{<a href="#{h website}">#{display_name}</a>}
   else
-    %{<a rev="lsc:participatesIn" property="foaf:maker schema:creator schema:author schema:publisher" href="#{h website}" typeof="foaf:Person schema:Person" resource="#{profile}">#{h name}</a>}
+    %{<a rev="lsc:participatesIn" property="foaf:maker schema:creator schema:author schema:publisher" href="#{h website}" typeof="foaf:Person schema:Person" resource="#{profile}">#{display_name}</a>}
   end
 end
