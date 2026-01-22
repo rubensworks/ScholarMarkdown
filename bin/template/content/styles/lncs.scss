@@ -386,9 +386,12 @@ header {
 
 #affiliations {
   list-style: none;
-  margin: 1em 0;
+  margin: 1em auto;
   padding: 0;
   letter-spacing: -.1px;
+  font-size: 0.8em;
+  text-align: center;
+  width: 375px;
 
   sup {
     margin-right: .1em;
