@@ -1,0 +1,35 @@
+name: Integration
+
+on: [push, pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version: ['3.2', '3.3', '3.4', '4.0']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: Build and install gem
+        run: |
+          gem build scholarmarkdown.gemspec
+          gem install scholarmarkdown-*.gem --no-document
+      - name: Initialize ScholarMarkdown article
+        run: generate-scholarmarkdown my-article
+      - name: Install article dependencies
+        run: bundle install
+        working-directory: my-article
+      - name: Build article
+        run: bundle exec nanoc compile
+        working-directory: my-article
