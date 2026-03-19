@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "description": "Renovate config for ScholarMarkdown. Major updates go via a PR; minor/patch updates are auto-merged when tests pass. Dependencies are checked every morning.",
+
+  "prCreation": "not-pending",
+  "stabilityDays": 1,
+  "statusCheckVerify": true,
+  "schedule": "before 7am every weekday",
+  "timezone": "Europe/Brussels",
+  "unicodeEmoji": true,
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "rangeStrategy": "bump",
+
+  "packageRules": [
+    {
+      "matchManagers": ["bundler"],
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchManagers": ["bundler"],
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "automergeType": "branch"
+    }
+  ]
+}
