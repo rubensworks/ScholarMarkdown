@@ -35,7 +35,7 @@ jobs:
         working-directory: my-article
       - name: Test development mode
         run: |
-          bundle exec guard &
+          bundle exec guard --no-interactions &
           GUARD_PID=$!
           sleep 5
           kill -0 $GUARD_PID

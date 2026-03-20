@@ -1,3 +1,10 @@
+# guard-nanoc passes `reps: []` to FileActionPrinter.new, but nanoc-cli >= 4.14.7
+# removed that parameter. Absorb the stale keyword argument so guard starts cleanly.
+require 'nanoc/cli'
+::Nanoc::CLI::CompileListeners::FileActionPrinter.prepend(Module.new do
+  def initialize(**); super(); end
+end)
+
 guard 'rack', :port => 3000 do
   watch 'Gemfile.lock'
 end
