@@ -33,3 +33,11 @@ jobs:
       - name: Build article
         run: bundle exec nanoc compile
         working-directory: my-article
+      - name: Test development mode
+        run: |
+          bundle exec guard &
+          GUARD_PID=$!
+          sleep 30
+          kill $GUARD_PID
+          wait $GUARD_PID || true
+        working-directory: my-article
