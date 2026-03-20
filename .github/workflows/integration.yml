@@ -33,3 +33,15 @@ jobs:
       - name: Build article
         run: bundle exec nanoc compile
         working-directory: my-article
+      - name: Test development mode
+        run: |
+          rm -f guard.log
+          bundle exec guard --no-interactions > guard.log 2>&1 &
+          GUARD_PID=$!
+          sleep 5
+          cat guard.log
+          if grep -q ' - ERROR - ' guard.log; then exit 1; fi
+          kill -0 $GUARD_PID
+          kill $GUARD_PID
+          wait $GUARD_PID || true
+        working-directory: my-article
