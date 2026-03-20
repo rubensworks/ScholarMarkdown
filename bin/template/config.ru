@@ -14,4 +14,4 @@ end
 
 use IndexRewriter
 use Rack::LiveReload
-run Rack::Files.new 'output'
+run Rack::Files.new("output")
