@@ -37,7 +37,8 @@ jobs:
         run: |
           bundle exec guard &
           GUARD_PID=$!
-          sleep 30
+          sleep 5
+          kill -0 $GUARD_PID
           kill $GUARD_PID
           wait $GUARD_PID || true
         working-directory: my-article
