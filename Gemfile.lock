@@ -221,7 +221,7 @@ PLATFORMS
 DEPENDENCIES
   bibmarkdown (~> 2.0.0)
   bibtex-ruby
-  bundler (~> 2.0)
+  bundler (~> 2.7, >= 2.7.2)
   citeproc-ruby (>= 1.1.6)
   csl-styles
   execjs
@@ -236,4 +236,4 @@ DEPENDENCIES
   sskatex
 
 BUNDLED WITH
-   2.5.22
+   2.7.2
