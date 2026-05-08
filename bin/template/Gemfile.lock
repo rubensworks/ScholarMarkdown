@@ -45,7 +45,7 @@ GEM
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
     execjs (2.10.0)
-    ffi (1.17.3-x86_64-linux-gnu)
+    ffi (1.17.4-x86_64-linux-gnu)
     formatador (1.2.3)
       reline
     forwardable (1.4.0)
@@ -65,11 +65,11 @@ GEM
       guard (~> 2.8)
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
-    guard-nanoc (2.1.10)
+    guard-nanoc (2.1.11)
       guard (~> 2.8)
       guard-compat (~> 1.0)
-      nanoc-cli (~> 4.11, >= 4.11.14)
-      nanoc-core (~> 4.11, >= 4.11.14)
+      nanoc-cli (~> 4.14)
+      nanoc-core (~> 4.14)
     guard-rack (2.2.1)
       ffi
       guard (~> 2.3)
@@ -231,7 +231,7 @@ DEPENDENCIES
   csl-styles
   csv (~> 3.3)
   guard-livereload
-  guard-nanoc (~> 2.1.2)
+  guard-nanoc (~> 2.1.11)
   guard-rack
   i18n (< 1.1)
   kramdown
