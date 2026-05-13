@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'nanoc', '~> 4.7'
-gem "csv", "~> 3.3"
+gem "csv", "~> 3.3", ">= 3.3.5"
 
 gem 'scholarmarkdown'
 

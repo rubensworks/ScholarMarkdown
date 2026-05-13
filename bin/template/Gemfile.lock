@@ -229,7 +229,7 @@ PLATFORMS
 DEPENDENCIES
   citeproc-ruby (>= 1.1.6)
   csl-styles
-  csv (~> 3.3)
+  csv (~> 3.3, >= 3.3.5)
   guard-livereload
   guard-nanoc (~> 2.1.11)
   guard-rack
