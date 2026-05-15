@@ -75,7 +75,7 @@ GEM
       guard (~> 2.3)
       spoon
     http_parser.rb (0.8.1)
-    i18n (1.0.1)
+    i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     immutable-ruby (0.2.0)
       concurrent-ruby (~> 1.1)
@@ -233,7 +233,7 @@ DEPENDENCIES
   guard-livereload
   guard-nanoc (~> 2.1.11)
   guard-rack
-  i18n (< 1.1)
+  i18n (< 1.14.9)
   kramdown
   latex-decode
   nanoc (~> 4.14, >= 4.14.7)
