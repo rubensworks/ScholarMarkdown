@@ -26,7 +26,6 @@
     },
     {
       "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin"],
       "automerge": true,
       "automergeType": "branch"
     }
