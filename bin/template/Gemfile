@@ -13,7 +13,7 @@ gem 'rubypants'
 gem 'sass'
 
 # references
-gem 'i18n', '< 1.14.9'
+gem 'i18n', '< 1.15.3'
 gem 'latex-decode'
 gem 'unicode_utils'
 gem 'citeproc-ruby', '>= 1.1.6'
