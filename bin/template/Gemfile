@@ -16,7 +16,7 @@ gem 'sass'
 gem 'i18n', '< 1.14.9'
 gem 'latex-decode'
 gem 'unicode_utils'
-gem 'citeproc-ruby', '>= 1.1.6'
+gem 'citeproc-ruby', '>= 2.1.8'
 gem 'csl-styles'
 
 group :development do
