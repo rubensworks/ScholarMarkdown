@@ -22,6 +22,6 @@ gem 'libv8-node', '16.10.0.0'
 
 group :development do
   # management of this gem
-  gem "bundler", "~> 4.0", ">= 4.0.14"
+  gem "bundler", "~> 4.0", ">= 4.0.15"
   gem "juwelier", "~> 2.4.9"
 end
