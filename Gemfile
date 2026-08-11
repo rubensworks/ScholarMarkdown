@@ -7,7 +7,7 @@ gem 'puma'
 gem 'i18n'
 gem 'bibtex-ruby'
 gem 'latex-decode'
-gem 'citeproc-ruby', '>= 1.1.6'
+gem 'citeproc-ruby', '>= 1.1.14'
 gem 'csl-styles'
 gem 'bibmarkdown', '~> 2.0.0'
 
