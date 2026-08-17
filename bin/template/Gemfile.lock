@@ -162,7 +162,7 @@ GEM
     puma (7.2.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.2.6)
+    rack (3.2.7)
     rack-livereload (0.5.1)
       rack
     rackup (2.3.1)
@@ -237,7 +237,7 @@ DEPENDENCIES
   kramdown
   latex-decode
   nanoc (~> 4.14, >= 4.14.7)
-  rack (>= 3.2.6)
+  rack (>= 3.2.7)
   rack-livereload
   rackup
   rb-readline
