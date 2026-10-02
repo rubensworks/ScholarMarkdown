@@ -18,7 +18,7 @@ gem 'kramdown-math-sskatex'
 gem 'execjs'
 
 gem 'mini_racer'
-gem 'libv8-node', '16.10.0.0'
+gem 'libv8-node', '24.12.0.1'
 
 group :development do
   # management of this gem
