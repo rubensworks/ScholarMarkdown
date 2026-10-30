@@ -19,7 +19,7 @@
     {
       "matchManagers": ["bundler"],
       "matchDepTypes": ["runtime", "development"],
-      "matchUpdateTypes": ["minor", "patch", "range"],
+      "matchUpdateTypes": ["minor", "patch", "bump"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true,
       "automergeType": "branch"
