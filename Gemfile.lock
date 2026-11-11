@@ -121,16 +121,20 @@ GEM
       kramdown (~> 2.0)
       sskatex (>= 0.9.37)
     latex-decode (0.4.2)
-    libv8-node (16.10.0.0)
-    libv8-node (16.10.0.0-aarch64-linux)
-    libv8-node (16.10.0.0-arm64-darwin)
-    libv8-node (16.10.0.0-x86_64-darwin)
-    libv8-node (16.10.0.0-x86_64-darwin-19)
-    libv8-node (16.10.0.0-x86_64-linux)
-    libv8-node (16.10.0.0-x86_64-linux-musl)
+    libv8 (8.4.255.0.1)
+    libv8 (8.4.255.0.1-universal-darwin)
+    libv8 (8.4.255.0.1-x86_64-darwin)
+    libv8 (8.4.255.0.1-x86_64-linux)
+    libv8-node (16.20.0.0)
+    libv8-node (16.20.0.0-aarch64-linux)
+    libv8-node (16.20.0.0-aarch64-linux-musl)
+    libv8-node (16.20.0.0-arm64-darwin)
+    libv8-node (16.20.0.0-x86_64-darwin)
+    libv8-node (16.20.0.0-x86_64-linux)
+    libv8-node (16.20.0.0-x86_64-linux-musl)
     logger (1.7.0)
-    mini_racer (0.6.3)
-      libv8-node (~> 16.10.0.0)
+    mini_racer (0.3.1)
+      libv8 (~> 8.4.255)
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
@@ -230,7 +234,7 @@ DEPENDENCIES
   katex
   kramdown-math-sskatex
   latex-decode
-  libv8-node (= 16.10.0.0)
+  libv8-node (= 16.20.0.0)
   mini_racer
   puma
   sskatex
